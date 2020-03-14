@@ -1,4 +1,5 @@
-const weather = document.querySelector(".js-wether");
+const weather_temp = document.querySelector(".temperature");
+const weather_place = document.querySelector(".place");
 
 const API_KEY = "6f226634822f3516213657bdb68a0a1a";
 const COORDS = "coords";
@@ -13,7 +14,8 @@ function getWeather(lat, lng){
         .then(function(json) {
             const temperature = json.main.temp;
             const place = json.name;
-            weather.innerText = `${temperature} @ ${place}`
+            weather_temp.innerText = `${temperature} °C`
+            weather_place.innerText = `@ ${place}`
         });
 
         // then 의 역할? 데이터가 완전히 들어온 다음 호출하는 것
