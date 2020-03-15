@@ -2,7 +2,6 @@
 
 const IMG_NUMBER = 5; // 이미지 추가 시 변경
 
-
 const image = document.querySelector(".wrap_bg > img");
 const random = () => {
   const num = Math.floor(Math.random() * IMG_NUMBER) + 1;
@@ -21,14 +20,19 @@ function getTime(){
     clock.innerText = `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
+
 // 이름 입력 폼
 const form = document.querySelector(".form"),
       input = form.querySelector("input"),
       greeting = document.querySelector(".greeting");
 
-const USER = "currentUser", SHOWING = "showing";
+const SHOWING = "showing";
 
-const saveName = text => { localStorage.setItem(USER, text); }
+const saveName = text => { localStorage.setItem("userName", text); }
+const resetName = () => { 
+  localStorage.removeItem("userName"); 
+  loadName();
+}
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -49,8 +53,10 @@ function sayHello(text) {
     greeting.innerText = `반갑습니다. ${text}님`;
 }
 
+greeting.addEventListener("click", resetName);
+
 function loadName() {
-    const currentUser = localStorage.getItem(USER);
+    const currentUser = localStorage.getItem("userName");
     if(currentUser === null){
         askForName();
     }

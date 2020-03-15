@@ -1,6 +1,7 @@
 * { padding: 0; margin: 0;}
-body { overflow: hidden; width: 100%; height: 100vh; position: relative; font-family: 'Sen', sans-serif; }
+body { overflow: hidden; width: 100%; height: 100vh; position: fixed; top: 0; font-family: 'Sen', sans-serif; }
 
+/* 배경화면 */
 @keyframes fadeIn {
     from{
         opacity: 0;
@@ -16,17 +17,32 @@ body { overflow: hidden; width: 100%; height: 100vh; position: relative; font-fa
     animation: fadeIn 0.5s linear;
 }
 
+/* 시계 */
 .wrap_clock { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
 .wrap_clock > h1 { font-size: 120px; color: #fff;}
 
+/* 날씨 */
 .wrap_wether { position: absolute; top: 40px; right: 40px; text-align: right; color: #fff; font-size: 18px;}
 .temperature { padding-bottom: 5px;}
 
+/* 이름 입력폼 */
 .form { display: none; margin-top: 14px; width: 100%; height: 40px; border-bottom: 2px solid #fff;}
 .form input { width: 100%; height: 100%; border: none; background: none; font-size: 24px; color: #fff; text-align: center;}
 .form input::placeholder { font-size: 24px; color: #fff;}
 .form input:focus { outline: none;}
 .form input:focus::placeholder { color: transparent;}
-.greeting { display: none; margin-top: 14px; font-size: 24px; color: #fff; text-align: center;}
+.greeting { display: none; margin-top: 14px; font-size: 24px; color: #fff; text-align: center; cursor: pointer;}
 
 .showing { display: block;}
+
+/* 투두 리스트 */
+.wrap_todo { position: absolute; bottom: 160px; width: 100%; text-align: center; color: #fff; font-size: 18px;}
+.toDoForm { display: inline-block; margin-top: 14px; height: 30px; border-bottom: 1px solid #fff;}
+.toDoForm input { width: 100%; height: 100%; border: none; background: none; font-size: 14px; color: #fff; text-align: center;}
+.toDoForm input::placeholder { font-size: 14px; color: #fff;}
+.toDoForm input:focus { outline: none;}
+.toDoForm input:focus::placeholder { color: transparent;}
+
+.toDoList { padding-top: 14px;} 
+.toDoList li { padding-top: 8px; font-size: 14px;} 
+.toDoList li button { margin-left: 14px; background-color: transparent; border: none; color: #fff; font-size: 10px; transform: translate(0px, -2px);} 
